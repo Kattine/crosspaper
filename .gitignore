@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.env
+
+# Data files (too large for git, reproduced via setup.py)
+data/raw/*.json
+data/processed/*.index
+data/processed/*.npy
+data/processed/*.pkl
+models/base/*
+models/fine_tuned/*
+!models/base/.gitkeep
+!models/fine_tuned/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
