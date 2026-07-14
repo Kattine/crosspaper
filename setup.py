@@ -1,12 +1,9 @@
 """
-Setup script for CrossPaper.
-Runs the full pipeline: fetch data, build training pairs, fine-tune model, build FAISS index.
+Run the CrossPaper pipeline from one entry point.
 
 Usage:
-    python setup.py              # Run full pipeline
-    python setup.py --step fetch # Run a specific step only
-
-AI Attribution: Project structure and pipeline design assisted by Claude (Anthropic).
+    python setup.py
+    python setup.py --step fetch
 """
 
 import argparse

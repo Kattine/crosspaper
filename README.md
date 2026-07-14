@@ -109,6 +109,3 @@ Papers are sourced from [OpenAlex](https://openalex.org/), a free and open catal
 
 **Discipline taxonomy is reductive.** Mapping papers to five top-level disciplines flattens the rich internal structure of each field. A paper in computational neuroscience might be classified as either CS or neuroscience depending on which concept OpenAlex assigns higher weight.
 
-## Attribution
-
-This project uses AI assistance from Claude (Anthropic) for code structure, API integration patterns, and evaluation metric design. Specific attributions are noted at the top of each source file.
