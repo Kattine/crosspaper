@@ -1,5 +1,5 @@
 """
-Upload inference artifacts to HuggingFace Hub. Slims metadata and stages models/indexes before upload.
+Upload inference artifacts to HuggingFace Hub. Slims metadata and stages models/indexes before upload. assisted by Claude (Anthropic, https://claude.ai)
 """
 
 import argparse
