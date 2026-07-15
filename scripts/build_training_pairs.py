@@ -1,6 +1,5 @@
 """
 Build training pairs from the fetched OpenAlex data.
-
 Positive pairs come from cross-field citation links, while hard negatives are
 same-field papers that do not cite each other.
 """
