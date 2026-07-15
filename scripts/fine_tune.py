@@ -8,6 +8,7 @@ link to the anchor.
 One thing that tripped me up: MPS recompiles its graph every time batch shapes
 change, which tanks throughput badly. The fix is uniform triplets, a fixed
 max_seq_length, and drop_last=True so every batch is identical.
+assisted by Claude (Anthropic, https://claude.ai)
 """
 
 import argparse
