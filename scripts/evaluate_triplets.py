@@ -1,7 +1,7 @@
 """
 Evaluate models using two triplet protocols: adversarial negatives (hard nearest neighbors)
 and standard negatives (random same-field papers). Tests if fine-tuning improved accuracy
-on hard cases without regressing on standard ones.
+on hard cases without regressing on standard ones. assisted by Claude (Anthropic, https://claude.ai)
 """
 
 import argparse
