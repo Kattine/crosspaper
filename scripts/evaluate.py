@@ -1,6 +1,5 @@
 """
-Compare base and fine-tuned model recommendations. Computes cross-field hit rates,
-diversity metrics, and generates before/after plots.
+Compare base and fine-tuned model recommendations. Computes cross-field hit rates, diversity metrics, and generates before/after plots. assisted by Claude (Anthropic, https://claude.ai)
 """
 
 import json
