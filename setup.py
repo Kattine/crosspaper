@@ -1,12 +1,5 @@
 """
-Setup script for CrossPaper.
-Runs the full pipeline: fetch data, build training pairs, fine-tune model, build FAISS index.
-
-Usage:
-    python setup.py              # Run full pipeline
-    python setup.py --step fetch # Run a specific step only
-
-AI Attribution: Project structure and pipeline design assisted by Claude (Anthropic).
+Pipeline orchestrator: fetch data, build pairs, mine negatives, fine-tune, build indexes.
 """
 
 import argparse
@@ -16,19 +9,23 @@ import sys
 
 PIPELINE_STEPS = [
     ("fetch", "scripts/fetch_openalex.py", "Fetching papers from OpenAlex API"),
-    ("pairs", "scripts/build_training_pairs.py", "Constructing cross-disciplinary training pairs"),
-    ("train", "scripts/fine_tune.py", "Fine-tuning sentence-transformer"),
+    ("pairs", "scripts/build_training_pairs.py", "Constructing cross-field citation pairs"),
     ("index", "scripts/build_index.py", "Building FAISS search index"),
+    ("mine", "scripts/mine_hard_negatives.py", "Mining embedding-based hard negatives"),
+    ("train", "scripts/fine_tune.py", "Fine-tuning sentence-transformer"),
 ]
+
+# The index step runs twice: once before mining (the base index is the input to
+# hard negative mining) and once after training (to index with the fine-tuned
+# model). The full pipeline appends the second pass automatically.
+FINAL_INDEX_STEP = (
+    "scripts/build_index.py",
+    "Rebuilding FAISS index with the fine-tuned model",
+)
 
 
 def run_step(script_path, description):
-    """Run a single pipeline step as a subprocess.
-
-    Args:
-        script_path: Relative path to the Python script.
-        description: Human-readable description for logging.
-    """
+    """Run a pipeline step as a subprocess."""
     print(f"\n{'='*60}")
     print(f"  {description}")
     print(f"  Running: python {script_path}")
@@ -43,7 +40,7 @@ def run_step(script_path, description):
 
 
 def main():
-    """Run the full setup pipeline or a specific step."""
+    """Run the full pipeline or a specific step."""
     parser = argparse.ArgumentParser(description="CrossPaper setup pipeline")
     parser.add_argument(
         "--step",
@@ -60,6 +57,7 @@ def main():
         print("  Running all steps...\n")
         for _, script_path, description in PIPELINE_STEPS:
             run_step(script_path, description)
+        run_step(*FINAL_INDEX_STEP)
         print("\n  All steps completed. Run 'python main.py' to start the app.\n")
 
 
