@@ -4,14 +4,29 @@ Supports diversity-aware ranking and web UI via Gradio.
 """
 
 import argparse
+import inspect
 import json
-import os
+
+# ZeroGPU runtime check (CPU-only app, but declare a dummy GPU function)
+try:
+    import spaces
+    ZEROGPU_RUNTIME = True
+except ImportError:
+    ZEROGPU_RUNTIME = False
 
 import gradio as gr
 import plotly.graph_objects as go
 
 from scripts.artifacts import ensure_artifacts
 from scripts.recommender import CrossPaperRecommender
+
+
+if ZEROGPU_RUNTIME:
+
+    @spaces.GPU(duration=5)
+    def zerogpu_startup_probe():
+        """Dummy GPU function for ZeroGPU startup check (app is CPU-only)."""
+        return "cpu-only app"
 
 
 # Field color scheme
@@ -33,7 +48,7 @@ FIELD_LABELS = {
 
 
 class CrossPaperApp:
-    """Gradio app for the recommender with two models (base and fine-tuned)."""
+    """Gradio app with two recommender instances (base and fine-tuned)."""
 
     def __init__(self):
         """Load both base and fine-tuned models."""
@@ -313,16 +328,17 @@ def main():
     app_instance = CrossPaperApp()
     ui = app_instance.build_ui()
 
-    # Bind to 0.0.0.0 on Spaces for the proxy, localhost otherwise
-    on_spaces = os.environ.get("SPACE_ID") is not None
-    server_name = "0.0.0.0" if on_spaces else "127.0.0.1"
+    # Bind to 0.0.0.0 for hosted containers; works for local dev too
+    launch_kwargs = {
+        "server_name": "0.0.0.0",
+        "server_port": args.port,
+        "share": args.share,
+    }
+    if "ssr_mode" in inspect.signature(ui.launch).parameters:
+        launch_kwargs["ssr_mode"] = False  # Disable Gradio 5+ SSR if available
 
     ui.queue()
-    ui.launch(
-        server_name=server_name,
-        server_port=args.port,
-        share=args.share,
-    )
+    ui.launch(**launch_kwargs)
 
 
 if __name__ == "__main__":
