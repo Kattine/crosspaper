@@ -10,7 +10,7 @@ Academic recommendation systems reinforce citation echo chambers. Researchers in
 
 ## Approach
 
-**Fine-tuning**: A sentence-transformer (`all-MiniLM-L6-v2`, 22M parameters) is fine-tuned using `MultipleNegativesRankingLoss` on cross-disciplinary citation pairs extracted from OpenAlex. Positive pairs are papers that cite each other across discipline boundaries. Hard negatives are same-discipline papers with keyword overlap but no citation link.
+**Fine-tuning**: A sentence-transformer (all-MiniLM-L6-v2, 22M parameters) is fine-tuned using MultipleNegativesRankingLoss on cross-disciplinary citation pairs extracted from OpenAlex. Positive pairs are papers that cite each other across discipline boundaries. Hard negatives are same-discipline papers with keyword overlap but no citation link.
 
 **Recommendation pipeline**: User query is encoded with the fine-tuned model, top-50 candidates are retrieved via FAISS cosine similarity search, and Maximal Marginal Relevance (MMR) reranking selects the final top-10 while balancing relevance with discipline diversity.
 
