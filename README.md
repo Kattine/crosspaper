@@ -147,19 +147,11 @@ Fine-tuning improves the candidate pool. MMR decides how diverse the final recom
 
 **Evaluation depends on the negative sampling strategy** The reported triplet improvement depends on how difficult the negatives are. Random negatives produce high accuracy for both models, while nearest-neighbor negatives create a much harder evaluation. Reporting both protocols makes this dependence explicit instead of highlighting only the larger improvement.
 
-**We found a bug by looking at the whole curve instead of one number** We originally believed fine-tuning had almost no effect on diversity. That turned out to be our own bug. We applied the field penalty multiplicatively, which accidentally rewarded repeated fields whenever the MMR score became negative. We only noticed something was wrong after plotting diversity across different λ values—the curve went in the opposite direction from what MMR should produce. Fixing the reranker roughly doubled the measured diversity gain. Looking at one operating point hid the bug. Looking at the whole curve exposed it.
-
-**Training pairs should match what the app is asked at inference** Our first version was trained on abstract-to-abstract citation pairs, but the application never sees abstracts—it sees short user queries. That mismatch turned out to matter. Switching to title-anchored pairs better matched the deployment setting and improved retrieval quality.
-
 **Diversity is not the same as usefulness** Cross-disciplinary recommendations are only candidates. Whether they are actually useful still requires human judgment. We report diversity and retrieval metrics because no ground-truth benchmark exists for cross-disciplinary recommendation quality.
 
 **Dataset bias** OpenAlex primarily indexes English-language scholarly literature, so the recommendations reflect biases already present in that corpus. Cross-disciplinary recommendations outside this literature are underrepresented.
 
-**Simplified field labels** Each paper is assigned to one of five broad disciplines. Many papers naturally span multiple fields, so this simplification is useful for evaluation but does not fully represent modern interdisciplinary research.
-
 **Retrieval is limited to a pre-built index** The application searches a fixed FAISS index of 49,926 papers rather than querying OpenAlex at runtime. Fine-tuning does not add new papers—it reshapes the embedding space so that cross-disciplinary papers already in the index become easier to retrieve.
 Coverage and representation are therefore decoupled: expanding coverage only requires rebuilding the index, not retraining the model.
 
-**Our citation filter also introduces bias.** To reduce low-quality results, the corpus keeps only papers with more than two citations. This improves retrieval
-quality, but it also favors work that has already accumulated academic attention. As a result, part of the citation bias we hope to mitigate is already present in the corpus before the recommender ever runs.
 
