@@ -76,7 +76,7 @@ class IndexBuilder:
             texts,
             batch_size=BATCH_SIZE,
             show_progress_bar=True,
-            normalize_embeddings=True,
+            normalize_embeddings=True,  # L2 normalize for cosine similarity
         )
         embeddings = np.array(embeddings, dtype=np.float32)
 

@@ -2,19 +2,23 @@
 
 **Cross-Discipline Academic Paper Recommender**
 
-CrossPaper helps researchers discover relevant papers from disciplines they would not normally encounter. It fine-tunes a sentence-transformer on cross-disciplinary citation pairs so that the resulting embedding space captures methodological similarity across field boundaries, then applies diversity-aware reranking to ensure recommendations span multiple fields.
+CrossPaper helps researchers discover relevant papers from disciplines they would not normally search. It fine-tunes a sentence-transformer on cross-disciplinary citation pairs so that papers with similar methods are placed closer together even when they come from different fields. A diversity-aware reranker then prevents recommendations from collapsing into a single discipline.
 
 ## Problem
 
-Academic recommendation systems reinforce citation echo chambers. Researchers in ML cite ML papers, miss relevant neuroscience or cognitive science work, and entire subfields remain invisible. General-purpose embedding models are not optimized for cross-field retrieval: they often place same-field papers closer together even when a paper from another field shares stronger methodological similarities. CrossPaper fine-tunes the embedding model on cross-field citation pairs so that those relationships are better preserved in the learned space.
+Academic recommendation systems can reinforce citation echo chambers. A researcher working in machine learning is much more likely to retrieve other ML papers than related work from neuroscience or psychology, even when the underlying ideas are similar. 
+
+General-purpose embedding models are not trained specifically for cross-disciplinary retrieval, so papers from the same field often cluster together. CrossPaper explores whether fine-tuning on cross-disciplinary citation pairs can make related work from different fields easier to retrieve without sacrificing relevance.
 
 ## Approach
 
-**Fine-tuning**: A sentence-transformer (`all-MiniLM-L6-v2`, 22M parameters) is fine-tuned using `MultipleNegativesRankingLoss` on cross-disciplinary citation pairs extracted from OpenAlex. Positive pairs are papers that cite each other across discipline boundaries. Hard negatives are same-discipline papers with keyword overlap but no citation link.
+**Fine-tuning**: We fine-tune all-MiniLM-L6-v2 (22M parameters), a sentence-transformer built on a distilled Transformer encoder.
 
-**Recommendation pipeline**: User query is encoded with the fine-tuned model, top-50 candidates are retrieved via FAISS cosine similarity search, and Maximal Marginal Relevance (MMR) reranking selects the final top-10 while balancing relevance with discipline diversity.
+Training pairs come from OpenAlex. Each positive pair is a cross-disciplinary citation, meaning one paper cites another paper from a different field. Hard negatives are same-field papers that look similar but have no citation relationship. Hard negatives are mined from the base model's nearest neighbors, making each training example focus on papers the model already finds difficult to distinguish.Training encourages the model to rank the cited paper ahead of these difficult distractors. The goal is not to predict citations, but to reshape the embedding space so that cross-disciplinary methodological connections become easier to retrieve.
 
-**Responsible design**: The system applies a field diversity penalty during reranking so no single field takes over the results. A citation count floor filters out papers that would otherwise be surfaced purely for diversity. The before/after comparison shows that increased diversity does not degrade performance under our triplet retrieval evaluation. We do not have relevance labels, so this is not a claim about recommendation relevance in general.
+**Recommendation pipeline**: A user query is encoded with the fine-tuned model and used to retrieve the top 50 candidates from a FAISS index. Maximal Marginal Relevance (MMR) then reranks those candidates to balance relevance and diversity before returning the final top 10.
+
+**Responsible recommendation**: CrossPaper uses MMR to avoid recommending papers from only one discipline. A citation-count threshold also filters out papers that are too lightly cited to be reliable recommendations.
 
 ## Live Demo
 
@@ -74,8 +78,6 @@ crosspaper/
 │   ├── processed/          <- Training pairs, FAISS indexes, metadata
 │   └── outputs/            <- Evaluation results and plots
 ├── notebooks/
-│   ├── 01_eda.ipynb        <- Data exploration (not graded)
-│   └── 02_embedding_viz.ipynb <- t-SNE visualization (not graded)
 └── assets/
     └── pitch/              <- Pitch materials
 ```
@@ -93,107 +95,71 @@ Papers come from [OpenAlex](https://openalex.org/), a free and open catalog of t
 | Loss function | `MultipleNegativesRankingLoss` with hard negatives |
 | Epochs | 3 |
 | Max sequence length | 128 |
-| Batch size | 64 |
+| Batch size | 32 |
+| Hardware | Apple M4 Pro (MPS) |
 | Learning rate | 2e-5 |
-| Hardware | Apple M4 Pro (CPU) |
 
 ## Evaluation
 
 ### Triplet accuracy by negative-sampling protocol
+We first evaluate the embedding model itself, before considering the reranker. Each test contains one genuine cross-disciplinary citation and one same-field paper that should not be preferred. The model succeeds if it ranks the true citation higher.
+We report two evaluation protocols because the difficulty of the negatives changes the measured accuracy.
 
-We evaluate whether the model ranks a genuine cross-field citation above a
-same-field topical lookalike. We measure this under two protocols, because the
-choice of negatives strongly influences the measured accuracy:
 
 | Protocol | Base | Fine-tuned | Change |
 |---|---|---|---|
 | **Standard** (random same-field negatives) | 0.9417 | 0.9657 | +0.0240 |
-| **Adversarial** (base model's own nearest neighbors) | 0.1062 | 0.5484 | **+0.4422** |
+| **Adversarial** (nearest-neighbor negatives) | 0.1062 | 0.5484 | **+0.4422** |
 
-Chance level is 0.50.
+Looking at both protocols tells us where the improvement comes from.
 
-Under the standard protocol, fine-tuning causes no regression on cases the base
-model already handled. Under the adversarial protocol, each negative is the
-same-field paper the base model itself considers most similar, with no citation
-link. The base model scores far below chance here, which is what we expect
-under this sampling strategy: the negatives are mined from its own nearest
-neighbors. Fine-tuning raises accuracy to 54.8%, so the model no longer
-confuses these hard negatives with genuine cross-field citations.
+Under the standard protocol, the base model is already very strong, so there is little room for improvement. Under the adversarial protocol, negatives are mined from the base model's own nearest neighbors, making them much harder. Fine-tuning substantially improves performance on these difficult cases while maintaining performance on the easy ones.
 
-The pattern across both protocols is the point. The base model is already
-strong on easy retrieval (94.2%), leaving little room to improve there. The
-benefit of fine-tuning shows up almost entirely on adversarially constructed
-hard negatives. This suggests the learned representation is better at resolving
-difficult semantic ambiguities rather than improving similarity matching
-overall.
 
-### End-to-end recommendation metrics (with MMR reranking, lambda=0.6)
+### End-to-end recommendation 
+
+MMR is evaluated at the deployed setting (λ = 0.6).
 
 | Metric | Base | Fine-tuned | Change |
 |---|---|---|---|
-| Cross-field rate | 0.440 | 0.460 | +0.020 |
-| Expected cross-field rate | 0.400 | 0.420 | +0.020 |
-| Diversity entropy | 1.033 | 1.099 | +0.066 |
-| Fields in top-10 | 2.80 | 2.80 | 0.00 |
+| Cross-field rate | 0.420 | 0.500 | +0.080 |
+| Expected cross-field rate | 0.360 | 0.420 | +0.060 |
+| Diversity entropy | 1.175 | 1.309 | +0.133 |
+| Fields in top-10 | 3.20 | 3.40 | +0.200 |
 
-Averaged over five benchmark queries spanning all five fields.
+The average hides substantial variation across queries. The strongest benchmark query (evolutionary algorithm for complex systems) improves from three represented fields to all five, while narrowly focused computer science queries show much smaller gains.
 
-### Component attribution
+This is expected. Queries that are naturally interdisciplinary benefit much more than narrowly defined within-field topics.
 
-End-to-end metrics understate the embedding contribution because MMR reranking
-substantially influences them. Disabling MMR (lambda=1.0, pure relevance)
-isolates the embedding effect: on the query "attention mechanism in visual
-processing", cross-field rate rises from 0.20 (base) to 0.30 (fine-tuned) — a
-50% relative gain. With MMR enabled, the gap narrows to 0.440 vs 0.460, because
-the reranker's field diversity penalty raises both models toward a similar
-floor regardless of which embeddings feed it.
+Moving from pure relevance (λ = 1.0) to the deployed setting (λ = 0.6) reduces the average embedding relevance score by only 1.9% while increasing diversity substantially. Here, relevance is measured by cosine similarity in the embedding space. We do not have human relevance judgments, so this should be interpreted as a retrieval metric rather than a direct measure of recommendation quality.
 
-The two components have distinct jobs: the fine-tuned embeddings supply
-cross-field relevance, and MMR supplies diversity.
+### What each component contributes
+
+The embedding model and the reranker solve different problems.
+
+The fine-tuned embedding improves which papers are retrieved. MMR decides how much diversity to introduce among those retrieved papers.
+
+Sweeping λ shows that the fine-tuned model consistently produces higher diversity than the base model across the entire relevance–diversity trade-off, while MMR controls where the system operates on that curve.
+
+Fine-tuning improves the candidate pool. MMR decides how diverse the final recommendations should be.
 
 ## Ethics and Limitations
 
-**The evaluation protocol shapes the headline number.** Our reported
-improvement (10.6% to 54.8%) depends heavily on how hard we chose to make the
-negatives. Mining them from the base model's own nearest neighbors is expected
-to produce a substantially lower baseline; a different mining strategy would
-yield a different number from the same model. The low baseline shows the mined
-negatives are far more challenging than random ones — it does not by itself
-show they are the right negatives, and negatives that are too hard risk
-introducing false negatives. The evaluation protocol is not a neutral measuring
-instrument but a design choice that strongly influences measured performance,
-which is not the same as actual capability. We report both protocols so this is
-visible rather than hidden behind the larger number.
+**Evaluation depends on the negative sampling strategy** The reported triplet improvement depends on how difficult the negatives are. Random negatives produce high accuracy for both models, while nearest-neighbor negatives create a much harder evaluation. Reporting both protocols makes this dependence explicit instead of highlighting only the larger improvement.
 
-**Fine-tuning initially made diversity worse, not better.** The first attempt
-trained on full abstract-to-abstract pairs and reduced diversity entropy
-(1.033 to 0.901). We identified two contributing factors. First, MMR reranking
-masked the embedding contribution: end-to-end metrics could not attribute
-effects to individual components, and only an ablation with MMR disabled showed
-what the embeddings were doing. Second, training on long abstract pairs
-mismatched the short free-text queries the app actually receives, degrading the
-base model's existing query understanding. Replacing abstract-to-abstract
-training pairs with title-anchored pairs aligned the two distributions and
-moved entropy positive (+0.066). Component-level gains do not imply
-system-level goals are met.
+**We found a bug by looking at the whole curve instead of one number** We originally believed fine-tuning had almost no effect on diversity. That turned out to be our own bug. We applied the field penalty multiplicatively, which accidentally rewarded repeated fields whenever the MMR score became negative. We only noticed something was wrong after plotting diversity across different λ values—the curve went in the opposite direction from what MMR should produce. Fixing the reranker roughly doubled the measured diversity gain. Looking at one operating point hid the bug. Looking at the whole curve exposed it.
 
-**Diversity is not quality.** Recommending a paper from another field does not
-make it useful. The citation count floor mitigates this but does not eliminate
-it. Users should evaluate cross-field recommendations with the same rigor as
-within-field ones.
+**Training pairs should match what the app is asked at inference** Our first version was trained on abstract-to-abstract citation pairs, but the application never sees abstracts—it sees short user queries. That mismatch turned out to matter. Switching to title-anchored pairs better matched the deployment setting and improved retrieval quality.
 
-**No ground truth for cross-field relevance.** There is no established benchmark
-for what constitutes a good cross-field recommendation. Our evaluation uses
-citation links as a proxy, but citation does not equal relevance, and absence of
-citation does not equal irrelevance.
+**Diversity is not the same as usefulness** Cross-disciplinary recommendations are only candidates. Whether they are actually useful still requires human judgment. We report diversity and retrieval metrics because no ground-truth benchmark exists for cross-disciplinary recommendation quality.
 
-**Data bias toward English-language Western institutions.** OpenAlex has broader
-coverage than many alternatives, but English-language journals and papers from
-North American and European institutions are overrepresented. "Cross-field" in
-this system means cross-field within the English-speaking academy.
+**Dataset bias** OpenAlex primarily indexes English-language scholarly literature, so the recommendations reflect biases already present in that corpus. Cross-disciplinary recommendations outside this literature are underrepresented.
 
-**Field taxonomy is reductive.** Mapping papers to five top-level fields
-flattens the internal structure of each. A computational neuroscience paper may
-land in either CS or neuroscience depending on which topic OpenAlex weights
-higher.
+**Simplified field labels** Each paper is assigned to one of five broad disciplines. Many papers naturally span multiple fields, so this simplification is useful for evaluation but does not fully represent modern interdisciplinary research.
+
+**Retrieval is limited to a pre-built index** The application searches a fixed FAISS index of 49,926 papers rather than querying OpenAlex at runtime. Fine-tuning does not add new papers—it reshapes the embedding space so that cross-disciplinary papers already in the index become easier to retrieve.
+Coverage and representation are therefore decoupled: expanding coverage only requires rebuilding the index, not retraining the model.
+
+**Our citation filter also introduces bias.** To reduce low-quality results, the corpus keeps only papers with more than two citations. This improves retrieval
+quality, but it also favors work that has already accumulated academic attention. As a result, part of the citation bias we hope to mitigate is already present in the corpus before the recommender ever runs.
 

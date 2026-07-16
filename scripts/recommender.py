@@ -1,8 +1,5 @@
 """
-Recommendation engine for CrossPaper.
-
-It retrieves papers with FAISS and then reranks them with MMR so the final
-list is not too concentrated in one field.
+Recommendation engine using FAISS retrieval and MMR reranking for diversity.
 """
 
 import pickle
@@ -18,21 +15,16 @@ DATA_DIR = Path("data/processed")
 BASE_MODEL_DIR = Path("models/base")
 FINETUNED_MODEL_DIR = Path("models/fine_tuned")
 
+# Field penalty: subtracted from MMR score when paper's field is already selected
+# Sized relative to cosine similarity range [-1, 1]; 0.15 is a noticeable but not overwhelming push
+FIELD_REPEAT_PENALTY = 0.15
+
 
 class CrossPaperRecommender:
-    """Recommends cross-disciplinary papers with diversity-aware reranking.
-
-    Uses FAISS for fast retrieval and MMR for ensuring recommendations
-    span multiple fields rather than clustering in one field.
-    """
+    """FAISS retrieval with MMR reranking for diverse recommendations."""
 
     def __init__(self, data_dir=DATA_DIR, model_dir=FINETUNED_MODEL_DIR):
-        """Initialize the recommender.
-
-        Args:
-            data_dir: Directory containing FAISS indexes and paper metadata.
-            model_dir: Directory containing the sentence-transformer model.
-        """
+        """Initialize with data and model directories."""
         self.data_dir = Path(data_dir)
         self.model_dir = Path(model_dir)
         self.model = None
@@ -41,11 +33,7 @@ class CrossPaperRecommender:
         self.embeddings = None
 
     def load(self, index_name="finetuned"):
-        """Load model, index, and metadata into memory.
-
-        Args:
-            index_name: Which index to load ('base' or 'finetuned').
-        """
+        """Load model, index, and metadata."""
         model_path = (
             BASE_MODEL_DIR if index_name == "base" else FINETUNED_MODEL_DIR
         )
@@ -65,15 +53,7 @@ class CrossPaperRecommender:
         print(f"  Ready: {self.index.ntotal} papers indexed")
 
     def retrieve(self, query, top_k=50):
-        """Retrieve top-k candidate papers by embedding similarity.
-
-        Args:
-            query: Natural language query string.
-            top_k: Number of candidates to retrieve (before reranking).
-
-        Returns:
-            Tuple of (similarity scores array, candidate indices array).
-        """
+        """Retrieve top-k candidates via FAISS cosine similarity search."""
         query_embedding = self.model.encode(
             [query], normalize_embeddings=True
         ).astype(np.float32)
@@ -82,7 +62,7 @@ class CrossPaperRecommender:
         return scores[0], indices[0]
 
     def mmr_rerank(self, query, candidates_idx, candidates_scores, top_n=10, lambda_param=0.6):
-        """Rerank candidates using MMR to balance relevance and field diversity."""
+        """Rerank candidates using MMR to balance relevance and diversity."""
         selected = []
         selected_indices = []
         remaining = list(range(len(candidates_idx)))
@@ -95,6 +75,7 @@ class CrossPaperRecommender:
                 paper_idx = candidates_idx[i]
                 relevance = candidates_scores[i]
 
+                # Diversity: max similarity to any already-selected paper
                 if selected_indices:
                     candidate_emb = self.embeddings[paper_idx].reshape(1, -1)
                     selected_embs = self.embeddings[selected_indices]
@@ -105,12 +86,13 @@ class CrossPaperRecommender:
 
                 mmr_score = lambda_param * relevance - (1 - lambda_param) * max_sim
 
+                # Field diversity penalty
                 paper_field = self.metadata.iloc[paper_idx]["field"]
                 selected_fields = [
                     self.metadata.iloc[idx]["field"] for idx in selected_indices
                 ]
                 if paper_field in selected_fields:
-                    mmr_score *= 0.85
+                    mmr_score -= FIELD_REPEAT_PENALTY
 
                 if mmr_score > best_score:
                     best_score = mmr_score
@@ -138,20 +120,7 @@ class CrossPaperRecommender:
         return selected
 
     def recommend(self, query, top_n=10, lambda_param=0.6):
-        """Generate recommendations for a query with diversity reranking.
-
-        This is the main entry point. Retrieves candidates via FAISS,
-        then applies MMR reranking to balance relevance with field
-        diversity.
-
-        Args:
-            query: Natural language description of research interest.
-            top_n: Number of recommendations to return.
-            lambda_param: Relevance vs. diversity tradeoff.
-
-        Returns:
-            Dictionary with recommendations list and diversity metrics.
-        """
+        """Generate recommendations with MMR reranking and diversity metrics."""
         scores, indices = self.retrieve(query, top_k=top_n * 5)
         recommendations = self.mmr_rerank(
             query, indices, scores, top_n=top_n, lambda_param=lambda_param
@@ -165,15 +134,7 @@ class CrossPaperRecommender:
         }
 
     def _compute_diversity(self, recommendations):
-        """Compute field diversity metrics for a recommendation set.
-
-        Args:
-            recommendations: List of recommendation dictionaries.
-
-        Returns:
-            Dictionary with diversity metrics including Shannon entropy,
-            field distribution, and cross-field hit rate.
-        """
+        """Compute Shannon entropy and field distribution metrics."""
         if not recommendations:
             return {"entropy": 0.0, "distribution": {}, "cross_field_rate": 0.0}
 
@@ -181,13 +142,16 @@ class CrossPaperRecommender:
         unique, counts = np.unique(fields, return_counts=True)
         probs = counts / counts.sum()
 
+        # Shannon entropy (higher = more diverse)
         entropy = -np.sum(probs * np.log2(probs + 1e-10))
 
+        # Distribution as percentages
         distribution = {
             disc: float(count / len(fields))
             for disc, count in zip(unique, counts)
         }
 
+        # Cross-field rate (fraction of results NOT from the dominant field)
         dominant_fraction = max(probs)
         cross_rate = 1.0 - dominant_fraction
 
