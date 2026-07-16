@@ -35,8 +35,8 @@ DATA_DIR = Path("data/raw")
 PAPERS_PER_FIELD = 10000
 PER_PAGE = 200  # OpenAlex max per page
 
-# Replace with your actual Duke email for polite pool (10 req/sec)
-POLITE_EMAIL = "keming.zhou@duke.edu"
+# Replace with your actual email for polite pool (10 req/sec)
+POLITE_EMAIL = "YOUR EMAIL"
 
 
 class OpenAlexFetcher:
