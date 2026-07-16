@@ -31,3 +31,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Artifact staging for the Hub upload — large and reproducible from the pipeline
+data/outputs/hub_staging/

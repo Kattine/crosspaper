@@ -1,0 +1,1073 @@
+{
+  "summary": {
+    "base": {
+      "avg_cross_rate": 0.42000000000000004,
+      "avg_expected_rate": 0.36,
+      "avg_entropy": 1.1750867159034157,
+      "avg_num_fields": 3.2
+    },
+    "finetuned": {
+      "avg_cross_rate": 0.5,
+      "avg_expected_rate": 0.42000000000000004,
+      "avg_entropy": 1.3085622843888776,
+      "avg_num_fields": 3.4
+    }
+  },
+  "base_details": [
+    {
+      "query": "attention mechanism in visual processing",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.8,
+      "expected_cross_rate": 0.8,
+      "diversity_entropy": 1.156779649014231,
+      "num_fields": 3,
+      "distribution": {
+        "computer_science": 0.2,
+        "neuroscience": 0.7,
+        "psychology": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "The Cognitive Neuroscience of Attention",
+          "abstract": "M.I. Posner, Progress in Attention Research. Part 1. Cognitive Science. R.M. Klein, M.A. Lawrence, On the Modes and Domains of Attention. L. Huang, H. Pashler, Boolean Map Approach to Visual Attention. H. Wang, X. Liu, J. Fan, Symbolic and Connectionist Models of Attention. G.W. Humphreys, E. Mavrit",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 655,
+          "relevance_score": 0.723313570022583,
+          "mmr_score": 0.43398815393447876
+        },
+        {
+          "title": "Attention mechanisms in computer vision: A survey",
+          "abstract": "Humans can naturally and effectively find salient regions in complex scenes. Motivated by this observation, attention mechanisms were introduced into computer vision with the aim of imitating this aspect of the human visual system. Such an attention mechanism can be regarded as a dynamic weight adju",
+          "field": "computer_science",
+          "year": 2022,
+          "cited_by_count": 2384,
+          "relevance_score": 0.6425320506095886,
+          "mmr_score": 0.18538092076778412
+        },
+        {
+          "title": "Attention and performance",
+          "abstract": "This chapter is a critical review and reappraisal of current theories of \u2018attention\u2019. In particular it offers a critique of the idea of general- purpose processing capacity as a metaphor for understanding human performance limitations in concurrent tasks. The chapter does not pretend to put forward,",
+          "field": "psychology",
+          "year": 2024,
+          "cited_by_count": 632,
+          "relevance_score": 0.5878797173500061,
+          "mmr_score": 0.138309508562088
+        },
+        {
+          "title": "Goal-directed and stimulus-driven selection of internal representations",
+          "abstract": "Adaptive behavior relies on the selection of relevant sensory information from both the external environment and internal memory representations. In understanding external selection, a classic distinction is made between voluntary (goal-directed) and involuntary (stimulus-driven) guidance of attenti",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 117,
+          "relevance_score": 0.6539852619171143,
+          "mmr_score": 0.02055390179157257
+        },
+        {
+          "title": "Salience determines attentional orienting in visual selection.",
+          "abstract": "Recently the signal-suppression account was proposed, positing that salient stimuli automatically produce a bottom-up salience signal that can be suppressed via top-down control processes. Evidence for this hybrid account came from a capture-probe paradigm that showed that while searching for a spec",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 127,
+          "relevance_score": 0.6906063556671143,
+          "mmr_score": 0.010183095932006836
+        },
+        {
+          "title": "No one knows what attention is",
+          "abstract": "In this article, we challenge the usefulness of \"attention\" as a unitary construct and/or neural system. We point out that the concept has too many meanings to justify a single term, and that \"attention\" is used to refer to both the explanandum (the set of phenomena in need of explanation) and the e",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 598,
+          "relevance_score": 0.6770888566970825,
+          "mmr_score": -0.007684797048568726
+        },
+        {
+          "title": "Effect of Visuospatial Attention on the Sensorimotor Gating System",
+          "abstract": "The integration of multiple sensory modalities allows us to adapt to the environment of the outside world. It is widely known that visual stimuli interfere with the processing of auditory information, which is involved in the ability to pay attention. Additionally, visuospatial attention has the cha",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 115,
+          "relevance_score": 0.6162397861480713,
+          "mmr_score": -0.014564409852027893
+        },
+        {
+          "title": "Why do imagery and perception look and feel so different?",
+          "abstract": "Despite the past few decades of research providing convincing evidence of the similarities in function and neural mechanisms between imagery and perception, for most of us, the experience of the two are undeniably different, why? Here, we review and discuss the differences between imagery and percep",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 107,
+          "relevance_score": 0.5678139925003052,
+          "mmr_score": -0.014960959553718567
+        },
+        {
+          "title": "Functional Specialization in the Attention Network",
+          "abstract": "Spatial attention is comprised of neural mechanisms that boost sensory processing at a behaviorally relevant location while filtering out competing information. The present review examines functional specialization in the network of brain regions that directs such preferential processing. This atten",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 230,
+          "relevance_score": 0.6106413006782532,
+          "mmr_score": -0.015413686633110046
+        },
+        {
+          "title": "An Empirical Study of Spatial Attention Mechanisms in Deep Networks",
+          "abstract": "Attention mechanisms have become a popular component in deep neural networks, yet there has been little examination of how different influencing factors and methods for computing attention from these factors affect performance. Toward a better general understanding of attention mechanisms, we presen",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 530,
+          "relevance_score": 0.618473470211029,
+          "mmr_score": -0.01773466169834137
+        }
+      ]
+    },
+    {
+      "query": "neural network optimization and gradient descent",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.3,
+      "expected_cross_rate": 0.2,
+      "diversity_entropy": 1.156779649014231,
+      "num_fields": 3,
+      "distribution": {
+        "computer_science": 0.7,
+        "neuroscience": 0.1,
+        "physics": 0.2
+      },
+      "recommendations": [
+        {
+          "title": "Optimization Methods for Large-Scale Machine Learning",
+          "abstract": "This paper provides a review and commentary on the past, present, and future of numerical optimization algorithms in the context of machine learning applications. Through case studies on text classification and the training of deep neural networks, we discuss how optimization problems arise in machi",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 317,
+          "relevance_score": 0.5973564386367798,
+          "mmr_score": 0.3584138751029968
+        },
+        {
+          "title": "Hybrid FEM-NN models: Combining artificial neural networks with the finite element method",
+          "abstract": "We present a methodology combining neural networks with physical principle constraints in the form of partial differential equations (PDEs). The approach allows to train neural networks while respecting the PDEs as a strong constraint in the optimisation as apposed to making them part of the loss fu",
+          "field": "physics",
+          "year": 2021,
+          "cited_by_count": 124,
+          "relevance_score": 0.48816052079200745,
+          "mmr_score": 0.13253189623355865
+        },
+        {
+          "title": "Image classification based on RESNET",
+          "abstract": "Abstract at present, neural networks are becoming more and more complex, from several layers to dozens of layers or even more than 100 layers. The main advantage of deep network is that it can express very complex functions. It can learn features from different levels of abstraction, such as edge fe",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 130,
+          "relevance_score": 0.49193280935287476,
+          "mmr_score": 0.0994204431772232
+        },
+        {
+          "title": "An Introduction to Neural Networks",
+          "abstract": "Though mathematical ideas underpin the study of neural networks, the author presents the fundamentals without the full mathematical apparatus. All aspects of the field are tackled, including artificial neurons as models of their real counterparts; the geometry of network action in pattern space; gra",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 372,
+          "relevance_score": 0.5357670783996582,
+          "mmr_score": -0.013026162981987
+        },
+        {
+          "title": "A mean field view of the landscape of two-layer neural networks",
+          "abstract": "Multilayer neural networks are among the most powerful models in machine learning, yet the fundamental reasons for this success defy mathematical understanding. Learning a neural network requires optimizing a nonconvex high-dimensional objective (risk function), a problem that is usually attacked us",
+          "field": "physics",
+          "year": 2018,
+          "cited_by_count": 521,
+          "relevance_score": 0.5936205983161926,
+          "mmr_score": -0.021495506167411804
+        },
+        {
+          "title": "A Comparative Analysis of Gradient Descent-Based Optimization Algorithms on Convolutional Neural Networks",
+          "abstract": "In this paper, we perform a comparative evaluation of seven most commonly used first-order stochastic gradient-based optimization techniques in a simple Convolutional Neural Network (ConvNet) architectural setup. The investigated techniques are the Stochastic Gradient Descent (SGD), with vanilla (vS",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 334,
+          "relevance_score": 0.5880360007286072,
+          "mmr_score": -0.03819051384925842
+        },
+        {
+          "title": "Visualizing the Loss Landscape of Neural Nets",
+          "abstract": "Neural network training relies on our ability to find good minimizers of highly non-convex loss functions. It is well known that certain network architecture designs (e.g., skip connections) produce loss functions that train easier, and well-chosen training parameters (batch size, learning rate, opt",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 514,
+          "relevance_score": 0.5484700798988342,
+          "mmr_score": -0.04006113111972809
+        },
+        {
+          "title": "Stability Analysis of the Modified Levenberg\u2013Marquardt Algorithm for the Artificial Neural Network Training",
+          "abstract": "The Levenberg-Marquardt and Newton are two algorithms that use the Hessian for the artificial neural network learning. In this article, we propose a modified Levenberg-Marquardt algorithm for the artificial neural network learning containing the training and testing stages. The modified Levenberg-Ma",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 240,
+          "relevance_score": 0.502454936504364,
+          "mmr_score": -0.04160739481449127
+        },
+        {
+          "title": "Sigmoid-weighted linear units for neural network function approximation in reinforcement learning",
+          "abstract": "In recent years, neural networks have enjoyed a renaissance as function approximators in reinforcement learning. Two decades after Tesauro's TD-Gammon achieved near top-level human performance in backgammon, the deep reinforcement learning algorithm DQN achieved human-level performance in many Atari",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 1926,
+          "relevance_score": 0.4725327789783478,
+          "mmr_score": -0.05100363492965698
+        },
+        {
+          "title": "Evaluating analytic gradients on quantum hardware",
+          "abstract": "An important application for near-term quantum computing lies in optimization tasks, with applications ranging from quantum chemistry and drug discovery to machine learning. In many settings, most prominently in so-called parametrized or variational algorithms, the objective function is a result of ",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 1063,
+          "relevance_score": 0.4492717981338501,
+          "mmr_score": -0.052577242255210876
+        }
+      ]
+    },
+    {
+      "query": "memory consolidation during sleep",
+      "source_field": "neuroscience",
+      "cross_field_rate": 0.1,
+      "expected_cross_rate": 0.1,
+      "diversity_entropy": 0.4689955933007422,
+      "num_fields": 2,
+      "distribution": {
+        "neuroscience": 0.9,
+        "psychology": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "Sleep Spindles Preferentially Consolidate Weakly Encoded Memories",
+          "abstract": "Sleep has been shown to be critical for memory consolidation, with some research suggesting that certain memories are prioritized for consolidation. Initial strength of a memory appears to be an important boundary condition in determining which memories are consolidated during sleep. However, the ro",
+          "field": "neuroscience",
+          "year": 2021,
+          "cited_by_count": 111,
+          "relevance_score": 0.7960475087165833,
+          "mmr_score": 0.47762852907180786
+        },
+        {
+          "title": "Pharmacological and non\u2010pharmacological interventions to enhance sleep in mild cognitive impairment and mild Alzheimer's disease: A systematic review",
+          "abstract": "Suboptimal sleep causes cognitive decline and probably accelerates Alzheimer's Disease (AD) progression. Several sleep interventions have been tested in established AD dementia cases. However early intervention is needed in the course of AD at Mild Cognitive Impairment (MCI) or mild dementia stages ",
+          "field": "psychology",
+          "year": 2020,
+          "cited_by_count": 130,
+          "relevance_score": 0.5672147274017334,
+          "mmr_score": 0.15326541662216187
+        },
+        {
+          "title": "Promoting memory consolidation during sleep: A meta-analysis of targeted memory reactivation.",
+          "abstract": "Targeted memory reactivation (TMR) is a methodology employed to manipulate memory processing during sleep. TMR studies have great potential to advance understanding of sleep-based memory consolidation and corresponding neural mechanisms. Research making use of TMR has developed rapidly, with over 70",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 248,
+          "relevance_score": 0.7808564901351929,
+          "mmr_score": 0.040507972240448
+        },
+        {
+          "title": "Memory and Sleep: How Sleep Cognition Can Change the Waking Mind for the Better",
+          "abstract": "The memories that we retain can serve many functions. They guide our future actions, form a scaffold for constructing the self, and continue to shape both the self and the way we perceive the world. Although most memories we acquire each day are forgotten, those integrated within the structure of mu",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 156,
+          "relevance_score": 0.7915692329406738,
+          "mmr_score": 0.025219589471817017
+        },
+        {
+          "title": "Synaptic plasticity during systems memory consolidation",
+          "abstract": "After learning, memory is initially encoded in the hippocampus but subsequently stabilized in other brain regions such as the cortex for long-lasting storage. This process is known as systems memory consolidation, and its cellular mechanism has long been a fundamental question. Synaptic plasticity i",
+          "field": "neuroscience",
+          "year": 2022,
+          "cited_by_count": 107,
+          "relevance_score": 0.5995349884033203,
+          "mmr_score": -0.008200407028198242
+        },
+        {
+          "title": "How rhythms of the sleeping brain tune memory and synaptic plasticity",
+          "abstract": "Decades of neurobehavioral research has linked sleep-associated rhythms in various brain areas to improvements in cognitive performance. However, it remains unclear what synaptic changes might underlie sleep-dependent declarative memory consolidation and procedural task improvement, and why these sa",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 104,
+          "relevance_score": 0.6889296770095825,
+          "mmr_score": -0.009387016296386719
+        },
+        {
+          "title": "Hippocampal Reactivation Extends for Several Hours Following Novel Experience",
+          "abstract": "New memories are believed to be consolidated over several hours of post-task sleep. The reactivation or \u201creplay\u201d of hippocampal cell assemblies has been proposed to provide a key mechanism for this process. However, previous studies have indicated that such replay is restricted to the first 10\u201330 mi",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 111,
+          "relevance_score": 0.6846812963485718,
+          "mmr_score": -0.0167863667011261
+        },
+        {
+          "title": "Increased neuronal signatures of targeted memory reactivation during slow-wave up states",
+          "abstract": "It is assumed that slow oscillatory up-states represent crucial time windows for memory reactivation and consolidation during sleep. We tested this assumption by utilizing closed-loop targeted memory reactivation: Participants were re-exposed to prior learned foreign vocabulary during up- and down-s",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 110,
+          "relevance_score": 0.6959056854248047,
+          "mmr_score": -0.022038578987121582
+        },
+        {
+          "title": "Augmenting hippocampal\u2013prefrontal neuronal synchrony during sleep enhances memory consolidation in humans",
+          "abstract": "Memory consolidation during sleep is thought to depend on the coordinated interplay between cortical slow waves, thalamocortical sleep spindles and hippocampal ripples, but direct evidence is lacking. Here, we implemented real-time closed-loop deep brain stimulation in human prefrontal cortex during",
+          "field": "neuroscience",
+          "year": 2023,
+          "cited_by_count": 138,
+          "relevance_score": 0.6961491107940674,
+          "mmr_score": -0.025096148252487183
+        },
+        {
+          "title": "Theta Phase-Coordinated Memory Reactivation Reoccurs in a Slow-Oscillatory Rhythm during NREM Sleep",
+          "abstract": "It has been proposed that sleep's contribution to memory consolidation is to reactivate prior encoded information. To elucidate the neural mechanisms carrying reactivation-related mnemonic information, we investigated whether content-specific memory signatures associated with memory reactivation dur",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 123,
+          "relevance_score": 0.6974959373474121,
+          "mmr_score": -0.026565581560134888
+        }
+      ]
+    },
+    {
+      "query": "evolutionary algorithm for complex systems",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.2,
+      "expected_cross_rate": 0.2,
+      "diversity_entropy": 0.9219280944545538,
+      "num_fields": 3,
+      "distribution": {
+        "biochemistry_genetics": 0.1,
+        "computer_science": 0.8,
+        "physics": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "Introduction to evolutionary algorithms",
+          "abstract": "Since they are gleaned from the model of organic evolution, all basic instances of evolutionary algorithms share a number of common properties, which are mentioned here to characterize the prototype of a general evolutionary algorithm: (i) Evolutionary algorithms utilize the collective learning proc",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 353,
+          "relevance_score": 0.656214714050293,
+          "mmr_score": 0.3937288522720337
+        },
+        {
+          "title": "Community Discovery in Dynamic Networks",
+          "abstract": "Several research studies have shown that complex networks modeling real-world phenomena are characterized by striking properties: (i) they are organized according to community structure, and (ii) their structure evolves with time. Many researchers have worked on methods that can efficiently unveil s",
+          "field": "physics",
+          "year": 2018,
+          "cited_by_count": 450,
+          "relevance_score": 0.4922017753124237,
+          "mmr_score": 0.14991377294063568
+        },
+        {
+          "title": "Fitness Dependent Optimizer: Inspired by the Bee Swarming Reproductive Process",
+          "abstract": "In this paper, a novel swarm intelligent algorithm is proposed, known as the fitness dependent optimizer (FDO). The bee swarming the reproductive process and their collective decision-making have inspired this algorithm; it has no algorithmic connection with the honey bee algorithm or the artificial",
+          "field": "biochemistry_genetics",
+          "year": 2019,
+          "cited_by_count": 316,
+          "relevance_score": 0.46414098143577576,
+          "mmr_score": 0.05071644484996796
+        },
+        {
+          "title": "An Introduction to Complex Systems Science and Its Applications",
+          "abstract": "The standard assumptions that underlie many conceptual and quantitative frameworks do not hold for many complex physical, biological, and social systems. Complex systems science clarifies when and why such assumptions fail and provides alternative frameworks for understanding the properties of compl",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 229,
+          "relevance_score": 0.6045674681663513,
+          "mmr_score": 0.041254013776779175
+        },
+        {
+          "title": "Inductive Learning Algorithms for Complex Systems Modeling",
+          "abstract": "Inductive Learning Algorithms for Complex Systems Modeling is a professional monograph that surveys new types of learning algorithms for modeling complex scientific systems in science and engineering. The book features discussions of algorithm development, structure, and behavior; comprehensive cove",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 502,
+          "relevance_score": 0.5500945448875427,
+          "mmr_score": -0.014804452657699585
+        },
+        {
+          "title": "IEEE Congress on Evolutionary Computation",
+          "abstract": "The IEEE Congress on Evolutionary Computation (IEEE CEC) is a world-class event in the field of evolutionary computation. It provides a forum to bring together researchers and practitioners from all over the world to present and discuss their research findings on evolutionary computation and computa",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 276,
+          "relevance_score": 0.6005816459655762,
+          "mmr_score": -0.015535205602645874
+        },
+        {
+          "title": "Evolutionary algorithms and their applications to engineering problems",
+          "abstract": "Abstract The main focus of this paper is on the family of evolutionary algorithms and their real-life applications. We present the following algorithms: genetic algorithms, genetic programming, differential evolution, evolution strategies, and evolutionary programming. Each technique is presented in",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 693,
+          "relevance_score": 0.6114544868469238,
+          "mmr_score": -0.020334526896476746
+        },
+        {
+          "title": "Evolutionary Fuzzy Systems for Explainable Artificial Intelligence: Why, When, What for, and Where to?",
+          "abstract": "Evolutionary fuzzy systems are one of the greatest advances within the area of computational intelligence. They consist of evolutionary algorithms applied to the design of fuzzy systems. Thanks to this hybridization, superb abilities are provided to fuzzy modeling in many different data science scen",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 225,
+          "relevance_score": 0.5861176252365112,
+          "mmr_score": -0.025433868169784546
+        },
+        {
+          "title": "A Survey on Cooperative Co-Evolutionary Algorithms",
+          "abstract": "The first cooperative co-evolutionary algorithm (CCEA) was proposed by Potter and De Jong in 1994 and since then many CCEAs have been proposed and successfully applied to solving various complex optimization problems. In applying CCEAs, the complex optimization problem is decomposed into multiple su",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 327,
+          "relevance_score": 0.5766555666923523,
+          "mmr_score": -0.03722210228443146
+        },
+        {
+          "title": "Evolutionary Transfer Optimization - A New Frontier in Evolutionary Computation Research",
+          "abstract": "The evolutionary algorithm (EA) is a nature-inspired population-based search method that works on Darwinian principles of natural selection. Due to its strong search capability and simplicity of implementation, EA has been successfully applied to solve many complex optimization problems, which canno",
+          "field": "computer_science",
+          "year": 2021,
+          "cited_by_count": 299,
+          "relevance_score": 0.6273561716079712,
+          "mmr_score": -0.04257282614707947
+        }
+      ]
+    },
+    {
+      "query": "decision making under uncertainty",
+      "source_field": "psychology",
+      "cross_field_rate": 0.7,
+      "expected_cross_rate": 0.5,
+      "diversity_entropy": 2.170950593733321,
+      "num_fields": 5,
+      "distribution": {
+        "biochemistry_genetics": 0.1,
+        "computer_science": 0.2,
+        "neuroscience": 0.3,
+        "physics": 0.1,
+        "psychology": 0.3
+      },
+      "recommendations": [
+        {
+          "title": "Dissociable neural correlates of uncertainty underlie different exploration strategies",
+          "abstract": "Most real-world decisions involve a delicate balance between exploring unfamiliar alternatives and committing to the best known option. Previous work has shown that humans rely on different forms of uncertainty to negotiate this \"explore-exploit\" trade-off, yet the neural basis of the underlying com",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 115,
+          "relevance_score": 0.5804002285003662,
+          "mmr_score": 0.3482401371002197
+        },
+        {
+          "title": "Aleatoric and epistemic uncertainty in machine learning: an introduction to concepts and methods",
+          "abstract": "Abstract The notion of uncertainty is of major importance in machine learning and constitutes a key element of machine learning methodology. In line with the statistical tradition, uncertainty has long been perceived as almost synonymous with standard probability and probabilistic predictions. Yet, ",
+          "field": "computer_science",
+          "year": 2021,
+          "cited_by_count": 1505,
+          "relevance_score": 0.5547260642051697,
+          "mmr_score": 0.1950833946466446
+        },
+        {
+          "title": "Anxiety, Depression, and Decision Making: A Computational Perspective",
+          "abstract": "In everyday life, the outcomes of our actions are rarely certain. Further, we often lack the information needed to precisely estimate the probability and value of potential outcomes as well as how much effort will be required by the courses of action under consideration. Under such conditions of unc",
+          "field": "psychology",
+          "year": 2018,
+          "cited_by_count": 251,
+          "relevance_score": 0.5691869854927063,
+          "mmr_score": 0.15863247215747833
+        },
+        {
+          "title": "Signaling Theory: State of the Theory and Its Future",
+          "abstract": "Signaling theory is about decision-making and communication. It describes scenarios where signalers send observable signals that carry credible information about unobservable qualities. When decision-makers have incomplete or imperfect information, signals can help them make better decisions. The po",
+          "field": "biochemistry_genetics",
+          "year": 2024,
+          "cited_by_count": 305,
+          "relevance_score": 0.41297078132629395,
+          "mmr_score": 0.13747936487197876
+        },
+        {
+          "title": "All Sets of Incompatible Measurements give an Advantage in Quantum State Discrimination",
+          "abstract": "Some quantum measurements cannot be performed simultaneously; i.e., they are incompatible. Here we show that every set of incompatible measurements provides an advantage over compatible ones in a suitably chosen quantum state discrimination task. This is proven by showing that the robustness of inco",
+          "field": "physics",
+          "year": 2019,
+          "cited_by_count": 128,
+          "relevance_score": 0.43703046441078186,
+          "mmr_score": 0.10485057532787323
+        },
+        {
+          "title": "Towards positions of safe uncertainty",
+          "abstract": "This paper explores the place of certainty and uncertainty in therapeutic practice. It suggests that for many, there has been a theoretical shift in the field of family therapy from a first- to a second-order perspective. To remain coherent with this shift in thinking requires a shift in practice in",
+          "field": "psychology",
+          "year": 2022,
+          "cited_by_count": 183,
+          "relevance_score": 0.4254758954048157,
+          "mmr_score": -0.03468647599220276
+        },
+        {
+          "title": "Evaluating Models\u2019 Local Decision Boundaries via Contrast Sets",
+          "abstract": "Matt Gardner, Yoav Artzi, Victoria Basmov, Jonathan Berant, Ben Bogin, Sihao Chen, Pradeep Dasigi, Dheeru Dua, Yanai Elazar, Ananth Gottumukkala, Nitish Gupta, Hannaneh Hajishirzi, Gabriel Ilharco, Daniel Khashabi, Kevin Lin, Jiangming Liu, Nelson F. Liu, Phoebe Mulcaire, Qiang Ning, Sameer Singh, N",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 259,
+          "relevance_score": 0.4127536416053772,
+          "mmr_score": -0.03573715686798096
+        },
+        {
+          "title": "Continuous decisions",
+          "abstract": "Humans and other animals evolved to make decisions that extend over time with continuous and ever-changing options. Nonetheless, the academic study of decision-making is mostly limited to the simple case of choice between two options. Here, we advocate that the study of choice should expand to inclu",
+          "field": "neuroscience",
+          "year": 2021,
+          "cited_by_count": 104,
+          "relevance_score": 0.49732768535614014,
+          "mmr_score": -0.039750173687934875
+        },
+        {
+          "title": "Subjective Confidence Predicts Information Seeking in Decision Making",
+          "abstract": "There is currently little direct evidence regarding the function of subjective confidence in decision making: The tight correlation between objective accuracy and subjective confidence makes it difficult to distinguish each variable's unique contribution. Here, we created conditions in a perceptual ",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 332,
+          "relevance_score": 0.5564597249031067,
+          "mmr_score": -0.04703037440776825
+        },
+        {
+          "title": "The Misestimation of Uncertainty in Affective Disorders",
+          "abstract": "Maintaining estimates of why unexpected events happen, of why we are uncertain, allows humans to adjust their inference and learn as efficiently as possible.Humans adjust their learning in response to the levels of different types of uncertainty, including expected uncertainty, caused by probabilist",
+          "field": "psychology",
+          "year": 2019,
+          "cited_by_count": 182,
+          "relevance_score": 0.5644681453704834,
+          "mmr_score": -0.05856335163116455
+        }
+      ]
+    }
+  ],
+  "finetuned_details": [
+    {
+      "query": "attention mechanism in visual processing",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.8,
+      "expected_cross_rate": 0.7,
+      "diversity_entropy": 1.5709505938775907,
+      "num_fields": 4,
+      "distribution": {
+        "computer_science": 0.2,
+        "neuroscience": 0.6,
+        "physics": 0.1,
+        "psychology": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "Visual Search: How Do We Find What We Are Looking For?",
+          "abstract": "In visual search tasks, observers look for targets among distractors. In the lab, this often takes the form of multiple searches for a simple shape that may or may not be present among other items scattered at random on a computer screen (e.g., Find a red T among other letters that are either black ",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 230,
+          "relevance_score": 0.6722326278686523,
+          "mmr_score": 0.40333959460258484
+        },
+        {
+          "title": "First spikes in visual cortex enable perceptual discrimination",
+          "abstract": "Visually guided perceptual decisions involve the sequential activation of a hierarchy of cortical areas. It has been hypothesized that a brief time window of activity in each area is sufficient to enable the decision but direct measurements of this time window are lacking. To address this question, ",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 136,
+          "relevance_score": 0.5995572209358215,
+          "mmr_score": 0.11741985380649567
+        },
+        {
+          "title": "Schematic Bases of Social Information Processing",
+          "abstract": "The term, schema, appears to have been first used by Bartlett in 1932 in his work on recall of perceptual experience. A minimal theory is not, however, necessarily a good theory, and so one may want to inquire of the schema\u2019s literature not only if the minimum criterion of a theory has been met, but",
+          "field": "physics",
+          "year": 2022,
+          "cited_by_count": 927,
+          "relevance_score": 0.5517418384552002,
+          "mmr_score": 0.09558206796646118
+        },
+        {
+          "title": "WITHDRAWN",
+          "abstract": "How do people judge the order of two nearly simultaneous stimuli, such as a light and a tone?We consider this question in the context of a general independent-channels model that incorporates most existing models of order perception as special cases, and which has been implicitly assumed when tempor",
+          "field": "psychology",
+          "year": 2025,
+          "cited_by_count": 279,
+          "relevance_score": 0.5384823679924011,
+          "mmr_score": 0.07242783904075623
+        },
+        {
+          "title": "Salience determines attentional orienting in visual selection.",
+          "abstract": "Recently the signal-suppression account was proposed, positing that salient stimuli automatically produce a bottom-up salience signal that can be suppressed via top-down control processes. Evidence for this hybrid account came from a capture-probe paradigm that showed that while searching for a spec",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 127,
+          "relevance_score": 0.651718020439148,
+          "mmr_score": -0.039176613092422485
+        },
+        {
+          "title": "Why ResNet Works? Residuals Generalize",
+          "abstract": "Residual connections significantly boost the performance of deep neural networks. However, few theoretical results address the influence of residuals on the hypothesis complexity and the generalization ability of deep neural networks. This article studies the influence of residual connections on the",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 389,
+          "relevance_score": 0.5405533313751221,
+          "mmr_score": -0.059939250349998474
+        },
+        {
+          "title": "Efficient coding explains the universal law of generalization in human perception",
+          "abstract": "Perceptual generalization and discrimination are fundamental cognitive abilities. For example, if a bird eats a poisonous butterfly, it will learn to avoid preying on that species again by generalizing its past experience to new perceptual stimuli. In cognitive science, the \"universal law of general",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 140,
+          "relevance_score": 0.616187572479248,
+          "mmr_score": -0.06527996063232422
+        },
+        {
+          "title": "Seven Myths on Crowding and Peripheral Vision",
+          "abstract": "Crowding has become a hot topic in vision research, and some fundamentals are now widely agreed upon. For the classical crowding task, one would likely agree with the following statements. (1) Bouma's law can be stated, succinctly and unequivocally, as saying that critical distance for crowding is a",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 116,
+          "relevance_score": 0.5535633563995361,
+          "mmr_score": -0.08969202637672424
+        },
+        {
+          "title": "Goal-directed and stimulus-driven selection of internal representations",
+          "abstract": "Adaptive behavior relies on the selection of relevant sensory information from both the external environment and internal memory representations. In understanding external selection, a classic distinction is made between voluntary (goal-directed) and involuntary (stimulus-driven) guidance of attenti",
+          "field": "neuroscience",
+          "year": 2020,
+          "cited_by_count": 117,
+          "relevance_score": 0.6136448383331299,
+          "mmr_score": -0.09214615821838379
+        },
+        {
+          "title": "Parallel spatial channels converge at a bottleneck in anterior word-selective cortex",
+          "abstract": "In most environments, the visual system is confronted with many relevant objects simultaneously. That is especially true during reading. However, behavioral data demonstrate that a serial bottleneck prevents recognition of more than one word at a time. We used fMRI to investigate how parallel spatia",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 112,
+          "relevance_score": 0.5914715528488159,
+          "mmr_score": -0.09287077188491821
+        }
+      ]
+    },
+    {
+      "query": "neural network optimization and gradient descent",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.4,
+      "expected_cross_rate": 0.4,
+      "diversity_entropy": 0.9709505941661296,
+      "num_fields": 2,
+      "distribution": {
+        "computer_science": 0.6,
+        "physics": 0.4
+      },
+      "recommendations": [
+        {
+          "title": "A mean field view of the landscape of two-layer neural networks",
+          "abstract": "Multilayer neural networks are among the most powerful models in machine learning, yet the fundamental reasons for this success defy mathematical understanding. Learning a neural network requires optimizing a nonconvex high-dimensional objective (risk function), a problem that is usually attacked us",
+          "field": "physics",
+          "year": 2018,
+          "cited_by_count": 521,
+          "relevance_score": 0.6221255660057068,
+          "mmr_score": 0.3732753396034241
+        },
+        {
+          "title": "Why ResNet Works? Residuals Generalize",
+          "abstract": "Residual connections significantly boost the performance of deep neural networks. However, few theoretical results address the influence of residuals on the hypothesis complexity and the generalization ability of deep neural networks. This article studies the influence of residual connections on the",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 389,
+          "relevance_score": 0.5714080333709717,
+          "mmr_score": 0.055235594511032104
+        },
+        {
+          "title": "ACTIVATION FUNCTIONS IN NEURAL NETWORKS",
+          "abstract": "Artificial Neural Networks are inspired from the human brain and the network of neurons present in the brain. The information is processed and passed on from one neuron to another through neuro synaptic junctions. Similarly, in artificial neural networks there are different layers of cells arranged ",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 1193,
+          "relevance_score": 0.578736424446106,
+          "mmr_score": -0.10027134418487549
+        },
+        {
+          "title": "Push\u2013Pull Gradient Methods for Distributed Optimization in Networks",
+          "abstract": "In this article, we focus on solving a distributed convex optimization problem in a network, where each agent has its own convex cost function and the goal is to minimize the sum of the agents' cost functions while obeying the network connectivity structure. In order to minimize the sum of the cost ",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 360,
+          "relevance_score": 0.5268720388412476,
+          "mmr_score": -0.11406484246253967
+        },
+        {
+          "title": "Entropy-SGD: biasing gradient descent into wide valleys*",
+          "abstract": "Abstract This paper proposes a new optimization algorithm called Entropy-SGD for training deep neural networks that is motivated by the local geometry of the energy landscape. Local extrema with low generalization error have a large proportion of almost-zero eigenvalues in the Hessian with very few ",
+          "field": "physics",
+          "year": 2019,
+          "cited_by_count": 289,
+          "relevance_score": 0.5576556324958801,
+          "mmr_score": -0.11773011088371277
+        },
+        {
+          "title": "Subtraction-Average-Based Optimizer: A New Swarm-Inspired Metaheuristic Algorithm for Solving Optimization Problems",
+          "abstract": "This paper presents a new evolutionary-based approach called a Subtraction-Average-Based Optimizer (SABO) for solving optimization problems. The fundamental inspiration of the proposed SABO is to use the subtraction average of searcher agents to update the position of population members in the searc",
+          "field": "computer_science",
+          "year": 2023,
+          "cited_by_count": 262,
+          "relevance_score": 0.4642505943775177,
+          "mmr_score": -0.13731780648231506
+        },
+        {
+          "title": "EfficientNet",
+          "abstract": "To start this chapter, we will look at some different reinforcement learning techniques that have been applied to convolutional neural networks. We\u2019re going to look at different variants of the same basic idea of having the computer explore different neural network architectures for us. We will look",
+          "field": "computer_science",
+          "year": 2021,
+          "cited_by_count": 297,
+          "relevance_score": 0.4983059763908386,
+          "mmr_score": -0.1385105550289154
+        },
+        {
+          "title": "On deep learning as a remedy for the curse of dimensionality in nonparametric regression",
+          "abstract": "Assuming that a smoothness condition and a suitable restriction on the structure of the regression function hold, it is shown that least squares estimates based on multilayer feedforward neural networks are able to circumvent the curse of dimensionality in nonparametric regression. The proof is base",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 247,
+          "relevance_score": 0.5288017988204956,
+          "mmr_score": -0.14508762955665588
+        },
+        {
+          "title": "ReLU Deep Neural Networks and Linear Finite Elements",
+          "abstract": "In this paper, we investigate the relationship between deep neural networks (DNN) with rectified linear unit (ReLU) function as the activation function and continuous piecewise linear (CPWL) functions, especially CPWL functions from the simplicial linear finite element method (FEM). We first conside",
+          "field": "physics",
+          "year": 2020,
+          "cited_by_count": 134,
+          "relevance_score": 0.5295668244361877,
+          "mmr_score": -0.14530763030052185
+        },
+        {
+          "title": "The Gap between Theory and Practice in Function Approximation with Deep Neural Networks",
+          "abstract": "Related DatabasesWeb of Science You must be logged in with an active subscription to view this.Article DataHistorySubmitted: 17 January 2020Accepted: 11 January 2021Published online: 06 May 2021Keywordsneural networks, deep learning, function approximation, compressed sensing, numerical analysisAMS ",
+          "field": "physics",
+          "year": 2021,
+          "cited_by_count": 123,
+          "relevance_score": 0.481810986995697,
+          "mmr_score": -0.15351155400276184
+        }
+      ]
+    },
+    {
+      "query": "memory consolidation during sleep",
+      "source_field": "neuroscience",
+      "cross_field_rate": 0.1,
+      "expected_cross_rate": 0.1,
+      "diversity_entropy": 0.4689955933007422,
+      "num_fields": 2,
+      "distribution": {
+        "neuroscience": 0.9,
+        "psychology": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "Theta Phase-Coordinated Memory Reactivation Reoccurs in a Slow-Oscillatory Rhythm during NREM Sleep",
+          "abstract": "It has been proposed that sleep's contribution to memory consolidation is to reactivate prior encoded information. To elucidate the neural mechanisms carrying reactivation-related mnemonic information, we investigated whether content-specific memory signatures associated with memory reactivation dur",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 123,
+          "relevance_score": 0.6848902702331543,
+          "mmr_score": 0.410934180021286
+        },
+        {
+          "title": "The economic cost of inadequate sleep",
+          "abstract": "Study Objectives: To estimate the economic cost (financial and nonfinancial) of inadequate sleep in Australia for the 2016-2017 financial year and relate this to likely costs in similar economies. Methods: Analysis was undertaken using prevalence, financial, and nonfinancial cost data derived from n",
+          "field": "psychology",
+          "year": 2018,
+          "cited_by_count": 278,
+          "relevance_score": 0.562118411064148,
+          "mmr_score": 0.07098686695098877
+        },
+        {
+          "title": "\u03b2-Amyloid accumulation in the human brain after one night of sleep deprivation",
+          "abstract": "F-florbetaben to measure brain A\u03b2 burden (ABB) in 20 healthy controls tested after a night of rested sleep (baseline) and after a night of sleep deprivation. We show that one night of sleep deprivation, relative to baseline, resulted in a significant increase in A\u03b2 burden in the right hippocampus an",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 879,
+          "relevance_score": 0.6280574202537537,
+          "mmr_score": -0.07851067185401917
+        },
+        {
+          "title": "Contextual priming of word meanings is stabilized over sleep",
+          "abstract": "Evidence is growing for the involvement of consolidation processes in the learning and retention of language, largely based on instances of new linguistic components (e.g., new words). Here, we assessed whether consolidation effects extend to the semantic processing of highly familiar words. The exp",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 105,
+          "relevance_score": 0.5784503817558289,
+          "mmr_score": -0.09158295392990112
+        },
+        {
+          "title": "REM sleep\u2013active MCH neurons are involved in forgetting hippocampus-dependent memories",
+          "abstract": "The neural mechanisms underlying memory regulation during sleep are not yet fully understood. We found that melanin concentrating hormone-producing neurons (MCH neurons) in the hypothalamus actively contribute to forgetting in rapid eye movement (REM) sleep. Hypothalamic MCH neurons densely innervat",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 229,
+          "relevance_score": 0.6408795118331909,
+          "mmr_score": -0.0962657630443573
+        },
+        {
+          "title": "Increased neuronal signatures of targeted memory reactivation during slow-wave up states",
+          "abstract": "It is assumed that slow oscillatory up-states represent crucial time windows for memory reactivation and consolidation during sleep. We tested this assumption by utilizing closed-loop targeted memory reactivation: Participants were re-exposed to prior learned foreign vocabulary during up- and down-s",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 110,
+          "relevance_score": 0.677096962928772,
+          "mmr_score": -0.09752979874610901
+        },
+        {
+          "title": "Developmental changes of sleep spindles and their impact on sleep\u2010dependent memory consolidation and general cognitive abilities: A longitudinal approach",
+          "abstract": "Sleep spindles are related to sleep-dependent memory consolidation and general cognitive abilities. However, they undergo drastic maturational changes during adolescence. Here we used a longitudinal approach (across 7 years) to explore whether developmental changes in sleep spindle density can expla",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 129,
+          "relevance_score": 0.63531494140625,
+          "mmr_score": -0.10229647159576416
+        },
+        {
+          "title": "Augmenting hippocampal\u2013prefrontal neuronal synchrony during sleep enhances memory consolidation in humans",
+          "abstract": "Memory consolidation during sleep is thought to depend on the coordinated interplay between cortical slow waves, thalamocortical sleep spindles and hippocampal ripples, but direct evidence is lacking. Here, we implemented real-time closed-loop deep brain stimulation in human prefrontal cortex during",
+          "field": "neuroscience",
+          "year": 2023,
+          "cited_by_count": 138,
+          "relevance_score": 0.661156415939331,
+          "mmr_score": -0.10437026619911194
+        },
+        {
+          "title": "Electrophysiological mechanisms of human memory consolidation",
+          "abstract": "Consolidation stabilizes memory traces after initial encoding. Rodent studies suggest that memory consolidation depends on replay of stimulus-specific activity patterns during fast hippocampal \"ripple\" oscillations. Here, we measured replay in intracranial electroencephalography recordings in human ",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 177,
+          "relevance_score": 0.6209384202957153,
+          "mmr_score": -0.1049695611000061
+        },
+        {
+          "title": "Sleep Spindles Preferentially Consolidate Weakly Encoded Memories",
+          "abstract": "Sleep has been shown to be critical for memory consolidation, with some research suggesting that certain memories are prioritized for consolidation. Initial strength of a memory appears to be an important boundary condition in determining which memories are consolidated during sleep. However, the ro",
+          "field": "neuroscience",
+          "year": 2021,
+          "cited_by_count": 111,
+          "relevance_score": 0.677399754524231,
+          "mmr_score": -0.1070442795753479
+        }
+      ]
+    },
+    {
+      "query": "evolutionary algorithm for complex systems",
+      "source_field": "computer_science",
+      "cross_field_rate": 0.4,
+      "expected_cross_rate": 0.2,
+      "diversity_entropy": 1.7709505937333214,
+      "num_fields": 5,
+      "distribution": {
+        "biochemistry_genetics": 0.1,
+        "computer_science": 0.6,
+        "neuroscience": 0.1,
+        "physics": 0.1,
+        "psychology": 0.1
+      },
+      "recommendations": [
+        {
+          "title": "Inductive Learning Algorithms for Complex Systems Modeling",
+          "abstract": "Inductive Learning Algorithms for Complex Systems Modeling is a professional monograph that surveys new types of learning algorithms for modeling complex scientific systems in science and engineering. The book features discussions of algorithm development, structure, and behavior; comprehensive cove",
+          "field": "computer_science",
+          "year": 2019,
+          "cited_by_count": 502,
+          "relevance_score": 0.5666546821594238,
+          "mmr_score": 0.33999282121658325
+        },
+        {
+          "title": "Simplicial Activity Driven Model",
+          "abstract": "Many complex systems find a convenient representation in terms of networks: structures made by pairwise interactions (links) of elements (nodes). For many biological and social systems, elementary interactions involve, however, more than two elements, and simplicial complexes are more adequate to de",
+          "field": "physics",
+          "year": 2018,
+          "cited_by_count": 170,
+          "relevance_score": 0.5070483088493347,
+          "mmr_score": 0.027222543954849243
+        },
+        {
+          "title": "Fitness Dependent Optimizer: Inspired by the Bee Swarming Reproductive Process",
+          "abstract": "In this paper, a novel swarm intelligent algorithm is proposed, known as the fitness dependent optimizer (FDO). The bee swarming the reproductive process and their collective decision-making have inspired this algorithm; it has no algorithmic connection with the honey bee algorithm or the artificial",
+          "field": "biochemistry_genetics",
+          "year": 2019,
+          "cited_by_count": 316,
+          "relevance_score": 0.47194522619247437,
+          "mmr_score": 0.01306450366973877
+        },
+        {
+          "title": "Quantifying high-order interdependencies via multivariate extensions of the mutual information",
+          "abstract": "This paper introduces a model-agnostic approach to study statistical synergy, a form of emergence in which patterns at large scales are not traceable from lower scales. Our framework leverages various multivariate extensions of Shannon's mutual information, and introduces the O-information as a metr",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 232,
+          "relevance_score": 0.4550843834877014,
+          "mmr_score": -0.003086090087890625
+        },
+        {
+          "title": "Metaphor-based metaheuristics, a call for action: the elephant in the room",
+          "abstract": "Taking inspiration from natural behaviors to devise new optimization algorithms has played an important role in the history of the field of metaheuristics (S\u00f6rensen et al. 2017).Unfortunately, in the last two decades we have been witnessing a new trend by which dozens of metaphor-based metaheuristic",
+          "field": "psychology",
+          "year": 2021,
+          "cited_by_count": 178,
+          "relevance_score": 0.455221951007843,
+          "mmr_score": -0.003581106662750244
+        },
+        {
+          "title": "Introduction to Algorithms",
+          "abstract": "We briefly discussed what we mean by algorithms in Chapter 1 , but perhaps it bears repeating; algorithms are recipes for solving a specific computational problem. They describe the steps you (or more usually your computer) must take to get from input to output and should guarantee you that if you f",
+          "field": "computer_science",
+          "year": 2021,
+          "cited_by_count": 899,
+          "relevance_score": 0.5428801774978638,
+          "mmr_score": -0.06823492050170898
+        },
+        {
+          "title": "IEEE Congress on Evolutionary Computation",
+          "abstract": "The IEEE Congress on Evolutionary Computation (IEEE CEC) is a world-class event in the field of evolutionary computation. It provides a forum to bring together researchers and practitioners from all over the world to present and discuss their research findings on evolutionary computation and computa",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 276,
+          "relevance_score": 0.5505920648574829,
+          "mmr_score": -0.11534693837165833
+        },
+        {
+          "title": "A Linear Algorithm for Optimization Over Directed Graphs With Geometric Convergence",
+          "abstract": "In this letter, we study distributed optimization, where a network of agents, abstracted as a directed graph, collaborates to minimize the average of locally known convex functions. Most of the existing approaches over directed graphs are based on push-sum (type) techniques, which use an independent",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 229,
+          "relevance_score": 0.4910903573036194,
+          "mmr_score": -0.12345948815345764
+        },
+        {
+          "title": "Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem",
+          "abstract": "Abstract An O( n 3 ) heuristic algorithm is described for solving d -city travelling salesman problems (TSP) whose cost matrix satisfies the triangularity condition. The algorithm involves as substeps the computation of a shortest spanning tree of the graph G defining the TSP and the finding of a mi",
+          "field": "computer_science",
+          "year": 2022,
+          "cited_by_count": 1144,
+          "relevance_score": 0.464882493019104,
+          "mmr_score": -0.1343875229358673
+        },
+        {
+          "title": "Set Propagation Techniques for Reachability Analysis",
+          "abstract": "Reachability analysis consists in computing the set of states that are reachable by a dynamical system from all initial states and for all admissible inputs and parameters. It is a fundamental problem motivated by many applications in formal verification, controller synthesis, and estimation, to nam",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 255,
+          "relevance_score": 0.46132034063339233,
+          "mmr_score": -0.1346619427204132
+        }
+      ]
+    },
+    {
+      "query": "decision making under uncertainty",
+      "source_field": "psychology",
+      "cross_field_rate": 0.8,
+      "expected_cross_rate": 0.7,
+      "diversity_entropy": 1.7609640468666032,
+      "num_fields": 4,
+      "distribution": {
+        "computer_science": 0.5,
+        "neuroscience": 0.2,
+        "physics": 0.1,
+        "psychology": 0.2
+      },
+      "recommendations": [
+        {
+          "title": "Planning and navigation as active inference",
+          "abstract": "This paper introduces an active inference formulation of planning and navigation. It illustrates how the exploitation-exploration dilemma is dissolved by acting to minimise uncertainty (i.e. expected surprise or free energy). We use simulations of a maze problem to illustrate how agents can solve qu",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 215,
+          "relevance_score": 0.4970409870147705,
+          "mmr_score": 0.2982245981693268
+        },
+        {
+          "title": "GAMES WITH INCOMPLETE INFORMATION PLAYED BY \u201cBAYESIAN\u201d PLAYERS",
+          "abstract": "The paper develops a new theory for the analysis of games with incomplete information where the players are uncertain about some important parameters of the game situation, such as the payoff functions, the strategies available to various players, the information other players have about the game, e",
+          "field": "psychology",
+          "year": 2020,
+          "cited_by_count": 181,
+          "relevance_score": 0.47552984952926636,
+          "mmr_score": 0.019028782844543457
+        },
+        {
+          "title": "Dissipation-Time Uncertainty Relation",
+          "abstract": "We show that the entropy production rate bounds the rate at which physical processes can be performed in stochastic systems far from equilibrium. In particular, we prove the fundamental tradeoff $\u27e8{\\stackrel{\\ifmmode \\dot{}\\else \\textperiodcentered \\fi{}}{S}}_{e}\u27e9\\mathcal{T}\\ensuremath{\\ge}{k}_{B}$ ",
+          "field": "physics",
+          "year": 2020,
+          "cited_by_count": 116,
+          "relevance_score": 0.3852759599685669,
+          "mmr_score": 0.017934396862983704
+        },
+        {
+          "title": "Moment-to-Moment Fluctuations in Neuronal Excitability Bias Subjective Perception Rather than Strategic Decision-Making",
+          "abstract": "Perceiving an external stimulus depends not only on the physical features of the stimulus, but also fundamentally on the current state of neuronal excitability, indexed by the power of ongoing alpha-band and beta-band oscillations (8-30 Hz). Recent studies suggest that heightened excitability does n",
+          "field": "neuroscience",
+          "year": 2018,
+          "cited_by_count": 107,
+          "relevance_score": 0.4310687780380249,
+          "mmr_score": -0.0010381340980529785
+        },
+        {
+          "title": "Evaluating Models\u2019 Local Decision Boundaries via Contrast Sets",
+          "abstract": "Matt Gardner, Yoav Artzi, Victoria Basmov, Jonathan Berant, Ben Bogin, Sihao Chen, Pradeep Dasigi, Dheeru Dua, Yanai Elazar, Ananth Gottumukkala, Nitish Gupta, Hannaneh Hajishirzi, Gabriel Ilharco, Daniel Khashabi, Kevin Lin, Jiangming Liu, Nelson F. Liu, Phoebe Mulcaire, Qiang Ning, Sameer Singh, N",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 259,
+          "relevance_score": 0.45196086168289185,
+          "mmr_score": -0.11329253017902374
+        },
+        {
+          "title": "Three-Way Multiattribute Decision-Making Based on Outranking Relations",
+          "abstract": "In contrast to two-way decisions (2WD), three-way decisions (3WD) can effectively reduce decision risks by utilizing a new delayed decision option. This article incorporates 3WD into multiattribute decision-making (MADM) based on an outranking relation. We construct the outranked set for each altern",
+          "field": "computer_science",
+          "year": 2020,
+          "cited_by_count": 236,
+          "relevance_score": 0.3857664465904236,
+          "mmr_score": -0.12452954053878784
+        },
+        {
+          "title": "Estimation for Better Inference in Neuroscience",
+          "abstract": "The estimation approach to inference emphasizes reporting effect sizes with expressions of uncertainty (interval estimates). In this perspective we explain the estimation approach and describe how it can help nudge neuroscientists toward a more productive research cycle by fostering better planning,",
+          "field": "neuroscience",
+          "year": 2019,
+          "cited_by_count": 151,
+          "relevance_score": 0.41489070653915405,
+          "mmr_score": -0.15841035544872284
+        },
+        {
+          "title": "Impaired adaptation of learning to contingency volatility in internalizing psychopathology",
+          "abstract": "Using a contingency volatility manipulation, we tested the hypothesis that difficulty adapting probabilistic decision-making to second-order uncertainty might reflect a core deficit that cuts across anxiety and depression and holds regardless of whether outcomes are aversive or involve reward gain o",
+          "field": "psychology",
+          "year": 2020,
+          "cited_by_count": 127,
+          "relevance_score": 0.4025927782058716,
+          "mmr_score": -0.15883906185626984
+        },
+        {
+          "title": "Planning in the Presence of Cost Functions Controlled by an Adversary",
+          "abstract": "We investigate methods for planning in a Markov Decision Process where the cost function is chosen by an adversary after we fix our policy. As a running example, we consider a robot path planning problem where costs are influenced by sensors that an adversary places in the environment. We formulate ",
+          "field": "computer_science",
+          "year": 2018,
+          "cited_by_count": 228,
+          "relevance_score": 0.4317099153995514,
+          "mmr_score": -0.16157576441764832
+        },
+        {
+          "title": "System <i>Z</i> : A Natural Ordering of Defaults with Tractable Applications to Nonmonotonic Reasoning",
+          "abstract": "chapter Share on System Z: A Natural Ordering of Defaults with Tractable Applications to Nonmonotonic Reasoning Author: Judea Pearl Search about this author Authors Info & Claims Probabilistic and Causal Inference: The Works of Judea PearlFebruary 2022 Pages 201\u2013214https://doi.org/10.1145/3501714.35",
+          "field": "computer_science",
+          "year": 2022,
+          "cited_by_count": 326,
+          "relevance_score": 0.40689143538475037,
+          "mmr_score": -0.16259631514549255
+        }
+      ]
+    }
+  ]
+}
